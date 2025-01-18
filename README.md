@@ -1,7 +1,9 @@
 # ShortenUrl
+# Django URL Shortener with Expiry and Analytics
+
 This project is a Django-based URL shortener system that allows users to shorten URLs, set expiration times, and track usage analytics.
 
-##Features
+# Features
 
 1. Core Functionality:
    - Create a shortened URL for any given long URL.
@@ -28,7 +30,7 @@ This project is a Django-based URL shortener system that allows users to shorten
    - `GET /<short_url>/`: Redirect to the original URL if not expired.
    - `GET /analytics/<short_url>/`: Retrieve analytics data for a specific shortened URL.
 
-##Installation
+# Installation
 
 1. create a virtual environment using the below command:
 	-> py -m venv env
@@ -49,6 +51,15 @@ This project is a Django-based URL shortener system that allows users to shorten
 
 6. To test run the request.py file or go to browser and hit this url <http://127.0.0.1:8000/shorten/> with the below data:
 	{
-    "original_url": "<url>",
-    "expiry_hours": 24
+        "original_url": "https://www.google.com",
+        "expiry_hours": 24,
+        "password": "Ap@123456789"
 }
+
+7. To test the second use case:
+	Syntax : <baseurl>/<shorten_url>/?password=<password>
+	http://127.0.0.1:8000/8ffdef/?password=Ap@123456789
+
+8. To test the third use case:
+	Syntax: <base_url>/analytics/<shorten_url>
+	Ex: http://127.0.0.1:8000/analytics/8ffdef/
